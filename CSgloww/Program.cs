@@ -234,7 +234,7 @@ namespace CSgloww
             public int Health;
             public vector Position;
             public int weaponID;
-             
+            public vector Velocity;
             public GlowStruct glow;
         }
 
@@ -253,6 +253,7 @@ namespace CSgloww
                     if (checkBoxBHop)
                     {
                         int flag = vam.ReadInt32((IntPtr)(localPlayer + netvars.m_fFlags));
+                       // int z = (int)vam.ReadFloat((IntPtr)(localPlayer + netvars.m_vecVelocity + 0x8));
 
                         if (IsKeyPushedDown(Keys.Space) && (flag == 257||flag == 263))
                         {
@@ -294,7 +295,17 @@ namespace CSgloww
             if ((weaponID == 40)||(weaponID == 9))
             {
                 int localPlayer = vam.ReadInt32((IntPtr)(client + oLocalPlayer));
-                return vam.ReadBoolean((IntPtr)(localPlayer + netvars.m_bIsScoped));
+                Player player = new Player();
+                player = GetMyPlayerInfo(localPlayer);
+                bool isMoving=false;
+                //Console.WriteLine(player.Velocity.z);
+                if (0 != (int)(player.Velocity.x + player.Velocity.y + player.Velocity.z))
+                {
+                    isMoving = true;
+                }
+                
+
+                return (vam.ReadBoolean((IntPtr)(localPlayer + netvars.m_bIsScoped))) && !isMoving;
             }
             return true;
         }
@@ -386,10 +397,14 @@ namespace CSgloww
             Player player = new Player();
             player.Team = vam.ReadInt32((IntPtr)(entity + oTeam));
             player.Health = vam.ReadInt32((IntPtr)(entity + iHealth));
+
             player.Position.x = vam.ReadFloat((IntPtr)(entity + vecOrigin));
             player.Position.y = vam.ReadFloat((IntPtr)(entity + vecOrigin + 0x4));
             player.Position.z = vam.ReadFloat((IntPtr)(entity + vecOrigin + 0x8));
 
+            player.Velocity.x = vam.ReadFloat((IntPtr)(entity + netvars.m_vecVelocity));
+            player.Velocity.y = vam.ReadFloat((IntPtr)(entity + netvars.m_vecVelocity + 0x4));
+            player.Velocity.z = vam.ReadFloat((IntPtr)(entity + netvars.m_vecVelocity + 0x8));
             return player;
         }
 
@@ -435,6 +450,7 @@ namespace CSgloww
                         handleTB(MyPlayer, player);
                     }
                 }
+                Thread.Sleep(1);
             }
         }
 
@@ -461,16 +477,16 @@ namespace CSgloww
                 r = 1,
                 g = 0,
                 b = 0,
-                a = 1,
+                a = 0.8f,
                 rwo = true,
                 rwuo = false
             };
             GlowStruct Team = new GlowStruct()
             {
                 r = 0,
-                g = 1,
+                g = 0,
                 b = 1,
-                a = 1,
+                a = 0.6f,
                 rwo = true,
                 rwuo = false
             };
@@ -601,7 +617,7 @@ namespace CSgloww
                     }
                     while (i < objectCount);
 
-                    Thread.Sleep(0);
+                    Thread.Sleep(1);
 
                    // address =  client + netvars.
                   //  int localbase = vam.ReadInt32((IntPtr)address);

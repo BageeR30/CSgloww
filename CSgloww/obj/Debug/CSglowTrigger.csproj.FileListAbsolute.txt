@@ -9,3 +9,14 @@ C:\Users\bagee\source\repos\CSgloww\CSgloww\obj\Debug\CSgloww.exe
 C:\Users\bagee\source\repos\CSgloww\CSgloww\obj\Debug\CSgloww.pdb
 C:\Users\bagee\source\repos\CSgloww\CSgloww\obj\Debug\CSgloww.Menu.resources
 C:\Users\bagee\source\repos\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csproj.GenerateResource.cache
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\bin\Debug\CSgloww.exe.config
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\bin\Debug\CSgloww.exe
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\bin\Debug\CSgloww.pdb
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\bin\Debug\VAMemory.dll
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csprojAssemblyReference.cache
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSgloww.Menu.resources
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csproj.GenerateResource.cache
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csproj.CoreCompileInputs.cache
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csproj.CopyComplete
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSgloww.exe
+C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSgloww.pdb
