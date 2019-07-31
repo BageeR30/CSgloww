@@ -14,43 +14,44 @@ namespace CSgloww
         public static class netvars
         {
             public const Int32 cs_gamerules_data = 0x0;
-            public const Int32 m_ArmorValue = 0xB328;
+            public const Int32 m_ArmorValue = 0xB340;
             public const Int32 m_Collision = 0x31C;
             public const Int32 m_CollisionGroup = 0x474;
             public const Int32 m_Local = 0x2FBC;
             public const Int32 m_MoveType = 0x25C;
             public const Int32 m_OriginalOwnerXuidHigh = 0x31B4;
             public const Int32 m_OriginalOwnerXuidLow = 0x31B0;
-            public const Int32 m_SurvivalGameRuleDecisionTypes = 0x1318;
-            public const Int32 m_SurvivalRules = 0xCF0;
+            public const Int32 m_SurvivalGameRuleDecisionTypes = 0x1320;
+            public const Int32 m_SurvivalRules = 0xCF8;
             public const Int32 m_aimPunchAngle = 0x302C;
             public const Int32 m_aimPunchAngleVel = 0x3038;
-            public const Int32 m_angEyeAnglesX = 0xB32C;
-            public const Int32 m_angEyeAnglesY = 0xB330;
+            public const Int32 m_angEyeAnglesX = 0xB344;
+            public const Int32 m_angEyeAnglesY = 0xB348;
             public const Int32 m_bBombPlanted = 0x99D;
             public const Int32 m_bFreezePeriod = 0x20;
-            public const Int32 m_bGunGameImmunity = 0x3928;
-            public const Int32 m_bHasDefuser = 0xB338;
-            public const Int32 m_bHasHelmet = 0xB31C;
+            public const Int32 m_bGunGameImmunity = 0x392C;
+            public const Int32 m_bHasDefuser = 0xB350;
+            public const Int32 m_bHasHelmet = 0xB334;
             public const Int32 m_bInReload = 0x3285;
-            public const Int32 m_bIsDefusing = 0x3914;
+            public const Int32 m_bIsDefusing = 0x3918;
             public const Int32 m_bIsQueuedMatchmaking = 0x74;
-            public const Int32 m_bIsScoped = 0x390A;
+            public const Int32 m_bIsScoped = 0x3910;
             public const Int32 m_bIsValveDS = 0x75;
             public const Int32 m_bSpotted = 0x93D;
             public const Int32 m_bSpottedByMask = 0x980;
+            public const Int32 m_bStartedArming = 0x33D0;
             public const Int32 m_clrRender = 0x70;
             public const Int32 m_dwBoneMatrix = 0x26A8;
-            public const Int32 m_fAccuracyPenalty = 0x3304;
+            public const Int32 m_fAccuracyPenalty = 0x3310;
             public const Int32 m_fFlags = 0x104;
             public const Int32 m_flC4Blow = 0x2990;
             public const Int32 m_flDefuseCountDown = 0x29AC;
             public const Int32 m_flDefuseLength = 0x29A8;
             public const Int32 m_flFallbackWear = 0x31C0;
-            public const Int32 m_flFlashDuration = 0xA3E0;
-            public const Int32 m_flFlashMaxAlpha = 0xA3DC;
+            public const Int32 m_flFlashDuration = 0xA3F4;
+            public const Int32 m_flFlashMaxAlpha = 0xA3F0;
             public const Int32 m_flLastBoneSetupTime = 0x2924;
-            public const Int32 m_flLowerBodyYawTarget = 0x3A74;
+            public const Int32 m_flLowerBodyYawTarget = 0x3A78;
             public const Int32 m_flNextAttack = 0x2D70;
             public const Int32 m_flNextPrimaryAttack = 0x3218;
             public const Int32 m_flSimulationTime = 0x268;
@@ -64,17 +65,17 @@ namespace CSgloww
             public const Int32 m_iClip1 = 0x3244;
             public const Int32 m_iCompetitiveRanking = 0x1A84;
             public const Int32 m_iCompetitiveWins = 0x1B88;
-            public const Int32 m_iCrosshairId = 0xB394;
+            public const Int32 m_iCrosshairId = 0xB3AC;
             public const Int32 m_iEntityQuality = 0x2FAC;
             public const Int32 m_iFOV = 0x31E4;
             public const Int32 m_iFOVStart = 0x31E8;
-            public const Int32 m_iGlowIndex = 0xA3F8;
+            public const Int32 m_iGlowIndex = 0xA40C;
             public const Int32 m_iHealth = 0x100;
             public const Int32 m_iItemDefinitionIndex = 0x2FAA;
             public const Int32 m_iItemIDHigh = 0x2FC0;
             public const Int32 m_iMostRecentModelBoneCounter = 0x2690;
             public const Int32 m_iObserverMode = 0x3374;
-            public const Int32 m_iShotsFired = 0xA370;
+            public const Int32 m_iShotsFired = 0xA380;
             public const Int32 m_iState = 0x3238;
             public const Int32 m_iTeamNum = 0xF4;
             public const Int32 m_lifeState = 0x25F;
@@ -99,7 +100,7 @@ namespace CSgloww
             public const Int32 clientstate_last_outgoing_command = 0x4D24;
             public const Int32 clientstate_net_channel = 0x9C;
             public const Int32 convar_name_hash_table = 0x2F0F8;
-            public const Int32 dwClientState = 0x58BCFC;
+            public const Int32 dwClientState = 0x58ECFC;
             public const Int32 dwClientState_GetLocalPlayer = 0x180;
             public const Int32 dwClientState_IsHLTV = 0x4D40;
             public const Int32 dwClientState_Map = 0x28C;
@@ -108,46 +109,46 @@ namespace CSgloww
             public const Int32 dwClientState_PlayerInfo = 0x52B8;
             public const Int32 dwClientState_State = 0x108;
             public const Int32 dwClientState_ViewAngles = 0x4D88;
-            public const Int32 dwEntityList = 0x4CDB00C;
-            public const Int32 dwForceAttack = 0x310C710;
-            public const Int32 dwForceAttack2 = 0x310C71C;
-            public const Int32 dwForceBackward = 0x310C6C8;
-            public const Int32 dwForceForward = 0x310C6D4;
-            public const Int32 dwForceJump = 0x517E1C4;
-            public const Int32 dwForceLeft = 0x310C6EC;
-            public const Int32 dwForceRight = 0x310C6E0;
-            public const Int32 dwGameDir = 0x631F70;
-            public const Int32 dwGameRulesProxy = 0x51F0504;
-            public const Int32 dwGetAllClasses = 0xCEE9D4;
-            public const Int32 dwGlobalVars = 0x58BA00;
-            public const Int32 dwGlowObjectManager = 0x521AF50;
-            public const Int32 dwInput = 0x5125DA0;
-            public const Int32 dwInterfaceLinkList = 0x8A7E14;
-            public const Int32 dwLocalPlayer = 0xCCA6A4;
-            public const Int32 dwMouseEnable = 0xCD01F0;
-            public const Int32 dwMouseEnablePtr = 0xCD01C0;
-            public const Int32 dwPlayerResource = 0x310AA6C;
-            public const Int32 dwRadarBase = 0x510FD4C;
-            public const Int32 dwSensitivity = 0xCD008C;
-            public const Int32 dwSensitivityPtr = 0xCD0060;
-            public const Int32 dwSetClanTag = 0x896A0;
-            public const Int32 dwViewMatrix = 0x4CCCA24;
-            public const Int32 dwWeaponTable = 0x5126864;
+            public const Int32 dwEntityList = 0x4D05AF4;
+            public const Int32 dwForceAttack = 0x31371BC;
+            public const Int32 dwForceAttack2 = 0x31371C8;
+            public const Int32 dwForceBackward = 0x31371F8;
+            public const Int32 dwForceForward = 0x31371D4;
+            public const Int32 dwForceJump = 0x51A91AC;
+            public const Int32 dwForceLeft = 0x31371EC;
+            public const Int32 dwForceRight = 0x3137210;
+            public const Int32 dwGameDir = 0x635170;
+            public const Int32 dwGameRulesProxy = 0x521B4F4;
+            public const Int32 dwGetAllClasses = 0xD1896C;
+            public const Int32 dwGlobalVars = 0x58EA00;
+            public const Int32 dwGlowObjectManager = 0x5245F08;
+            public const Int32 dwInput = 0x5150B40;
+            public const Int32 dwInterfaceLinkList = 0x8C8334;
+            public const Int32 dwLocalPlayer = 0xCF3A4C;
+            public const Int32 dwMouseEnable = 0xCF9598;
+            public const Int32 dwMouseEnablePtr = 0xCF9568;
+            public const Int32 dwPlayerResource = 0x313553C;
+            public const Int32 dwRadarBase = 0x513A854;
+            public const Int32 dwSensitivity = 0xCF9434;
+            public const Int32 dwSensitivityPtr = 0xCF9408;
+            public const Int32 dwSetClanTag = 0x897C0;
+            public const Int32 dwViewMatrix = 0x4CF7524;
+            public const Int32 dwWeaponTable = 0x5151604;
             public const Int32 dwWeaponTableIndex = 0x323C;
-            public const Int32 dwYawPtr = 0xCCFE50;
-            public const Int32 dwZoomSensitivityRatioPtr = 0xCD5090;
-            public const Int32 dwbSendPackets = 0xD230A;
-            public const Int32 dwppDirect3DDevice9 = 0xA3FC0;
-            public const Int32 force_update_spectator_glow = 0x38D172;
+            public const Int32 dwYawPtr = 0xCF91F8;
+            public const Int32 dwZoomSensitivityRatioPtr = 0xCFE418;
+            public const Int32 dwbSendPackets = 0xD2B0A;
+            public const Int32 dwppDirect3DDevice9 = 0xA6030;
+            public const Int32 force_update_spectator_glow = 0x393362;
             public const Int32 interface_engine_cvar = 0x3E9EC;
-            public const Int32 is_c4_owner = 0x399190;
+            public const Int32 is_c4_owner = 0x39F5A0;
             public const Int32 m_bDormant = 0xED;
             public const Int32 m_pStudioHdr = 0x294C;
-            public const Int32 m_pitchClassPtr = 0x5110000;
-            public const Int32 m_yawClassPtr = 0xCCFE50;
-            public const Int32 model_ambient_min = 0x58ED1C;
-            public const Int32 set_abs_angles = 0x1C7280;
-            public const Int32 set_abs_origin = 0x1C70C0;
+            public const Int32 m_pitchClassPtr = 0x513AB00;
+            public const Int32 m_yawClassPtr = 0xCF91F8;
+            public const Int32 model_ambient_min = 0x591D1C;
+            public const Int32 set_abs_angles = 0x1CA9B0;
+            public const Int32 set_abs_origin = 0x1CA7F0;
         }
 
         [DllImport("user32.dll")]
@@ -243,7 +244,19 @@ namespace CSgloww
             public float x, y, z;
         }
 
-        public static void BHop()
+        public static bool SeenBy(int entityIndex)
+        {
+            return (netvars.m_bSpottedByMask & (0x1 << entityIndex)) != 0;
+        }
+        /*
+        public bool SeenBy(Player ent)
+        {
+            return SeenBy(ent. - 1);
+
+        }
+        */
+
+            public static void BHop()
         {
             int localPlayer = vam.ReadInt32((IntPtr)(client+oLocalPlayer));
             if (localPlayer != 0)
@@ -442,7 +455,7 @@ namespace CSgloww
 
                         address = client + oEntityList + ((crosshair - 1) * 0x10);
                         int entity = vam.ReadInt32((IntPtr)address);
-                        //Console.WriteLine(entity);
+                        //Console.WriteLine(crosshair);
 
                         MyPlayer = GetMyPlayerInfo(lPlayer);
                         player = GetMyPlayerInfo(entity);
@@ -584,32 +597,32 @@ namespace CSgloww
 
                                 }
                                 else
-                                {
+                                {                                                                       
+                                        
+                                                                       
+                                        int calculation = GlowIndex * 0x38 + 0x4;
+                                        int current = GlowObject + calculation;
+                                        vam.WriteFloat((IntPtr)current, Enemy.r);
 
-                                    int calculation = GlowIndex * 0x38 + 0x4;
-                                    int current = GlowObject + calculation;
-                                    vam.WriteFloat((IntPtr)current, Enemy.r);
+                                        calculation = GlowIndex * 0x38 + 0x8;
+                                        current = GlowObject + calculation;
+                                        vam.WriteFloat((IntPtr)current, Enemy.g);
 
-                                    calculation = GlowIndex * 0x38 + 0x8;
-                                    current = GlowObject + calculation;
-                                    vam.WriteFloat((IntPtr)current, Enemy.g);
+                                        calculation = GlowIndex * 0x38 + 0xC;
+                                        current = GlowObject + calculation;
+                                        vam.WriteFloat((IntPtr)current, Enemy.b);
 
-                                    calculation = GlowIndex * 0x38 + 0xC;
-                                    current = GlowObject + calculation;
-                                    vam.WriteFloat((IntPtr)current, Enemy.b);
+                                        calculation = GlowIndex * 0x38 + 0x10;
+                                        current = GlowObject + calculation;
+                                        vam.WriteFloat((IntPtr)current, Enemy.a);
 
-                                    calculation = GlowIndex * 0x38 + 0x10;
-                                    current = GlowObject + calculation;
-                                    vam.WriteFloat((IntPtr)current, Enemy.a);
+                                        calculation = GlowIndex * 0x38 + 0x24;
+                                        current = GlowObject + calculation;
+                                        vam.WriteBoolean((IntPtr)current, Enemy.rwo);
 
-                                    calculation = GlowIndex * 0x38 + 0x24;
-                                    current = GlowObject + calculation;
-                                    vam.WriteBoolean((IntPtr)current, Enemy.rwo);
-
-                                    calculation = GlowIndex * 0x38 + 0x25;
-                                    current = GlowObject + calculation;
-                                    vam.WriteBoolean((IntPtr)current, Enemy.rwuo);
-
+                                        calculation = GlowIndex * 0x38 + 0x25;
+                                        current = GlowObject + calculation;
+                                        vam.WriteBoolean((IntPtr)current, Enemy.rwuo);                                                                      
                                 }
                             }
                         }
