@@ -20,3 +20,4 @@ C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csp
 C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSglowTrigger.csproj.CopyComplete
 C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSgloww.exe
 C:\Users\bagee\Source\Repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSgloww.pdb
+C:\Users\bagee\source\repos\BageeR30\CSgloww\CSgloww\obj\Debug\CSgloww.Properties.Resources.resources

@@ -7,10 +7,12 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
+
 namespace CSgloww
 {
     class Program
     {
+        /*
         public static class netvars
         {
             public const Int32 cs_gamerules_data = 0x0;
@@ -150,6 +152,17 @@ namespace CSgloww
             public const Int32 set_abs_angles = 0x1CA9B0;
             public const Int32 set_abs_origin = 0x1CA7F0;
         }
+        */
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        public const int SW_HIDE = 0;
+        public const int SW_SHOW = 5;
+
+
 
         [DllImport("user32.dll")]
         static extern ushort GetAsyncKeyState(int vKey);
@@ -246,7 +259,7 @@ namespace CSgloww
 
         public static bool SeenBy(int entityIndex)
         {
-            return (netvars.m_bSpottedByMask & (0x1 << entityIndex)) != 0;
+            return (hazedumper.netvars.m_bSpottedByMask & (0x1 << entityIndex)) != 0;
         }
         /*
         public bool SeenBy(Player ent)
@@ -265,12 +278,12 @@ namespace CSgloww
                 {
                     if (checkBoxBHop)
                     {
-                        int flag = vam.ReadInt32((IntPtr)(localPlayer + netvars.m_fFlags));
+                        int flag = vam.ReadInt32((IntPtr)(localPlayer + hazedumper.netvars.m_fFlags));
                        // int z = (int)vam.ReadFloat((IntPtr)(localPlayer + netvars.m_vecVelocity + 0x8));
 
                         if (IsKeyPushedDown(Keys.Space) && (flag == 257||flag == 263))
                         {
-                            vam.WriteInt32((IntPtr)(client + signatures.dwForceJump), 6);
+                            vam.WriteInt32((IntPtr)(client + hazedumper.signatures.dwForceJump), 6);
                         }
                     }
                     
@@ -318,7 +331,7 @@ namespace CSgloww
                 }
                 
 
-                return (vam.ReadBoolean((IntPtr)(localPlayer + netvars.m_bIsScoped))) && !isMoving;
+                return (vam.ReadBoolean((IntPtr)(localPlayer + hazedumper.netvars.m_bIsScoped))) && !isMoving;
             }
             return true;
         }
@@ -330,8 +343,8 @@ namespace CSgloww
             {
                 case 16:delay = 3; break;
                 case 7: delay = 3.3f; break;
-                case 40: delay = 0.1f; break;
-                case 9: delay = 0.1f; break;
+                case 40: delay = 0; break;
+                case 9: delay = 0; break;
                 case 42: delay = 0; break;
                 case 1: delay = 4.2f; break;
                 default: delay = 3.3f; break;
@@ -347,7 +360,7 @@ namespace CSgloww
                 float Delay = setTBDelay(weaponID, Distance(MyPlayer.Position, player.Position));
                 if (isScoped(weaponID))
                 {
-                    if (weaponID == 42 || weaponID == 59)
+                    if (weaponID == 42 || weaponID == 59) //нож не доделан
                     {
                         if (Distance(MyPlayer.Position, player.Position)<32)
                         {
@@ -371,26 +384,26 @@ namespace CSgloww
 
 
       
-        const int oLocalPlayer = signatures.dwLocalPlayer;
-        const int oTeam = netvars.m_iTeamNum;
-        const int oEntityList = signatures.dwEntityList;
-        const int oDormant = signatures.m_bDormant;
-        const int oGlowIndex = netvars.m_iGlowIndex;
-        const int oGlowObject = signatures.dwGlowObjectManager;
-        const int oCrosshairID = netvars.m_iCrosshairId;
-        const int iHealth = netvars.m_iHealth;
-        const int iAttack = signatures.dwForceAttack;
-        const int vecOrigin = netvars.m_vecOrigin;
+        const int oLocalPlayer = hazedumper.signatures.dwLocalPlayer;
+        const int oTeam = hazedumper.netvars.m_iTeamNum;
+        const int oEntityList = hazedumper.signatures.dwEntityList;
+        const int oDormant = hazedumper.signatures.m_bDormant;
+        const int oGlowIndex = hazedumper.netvars.m_iGlowIndex;
+        const int oGlowObject = hazedumper.signatures.dwGlowObjectManager;
+        const int oCrosshairID = hazedumper.netvars.m_iCrosshairId;
+        const int iHealth = hazedumper.netvars.m_iHealth;
+        const int iAttack = hazedumper.signatures.dwForceAttack;
+        const int vecOrigin = hazedumper.netvars.m_vecOrigin;
 
         public static int getMyWeapon()
         {
             int weaponID=0;
             int localPlayer = vam.ReadInt32((IntPtr)(client+oLocalPlayer));
-            int weapon = vam.ReadInt32((IntPtr)(localPlayer + netvars.m_hActiveWeapon));
+            int weapon = vam.ReadInt32((IntPtr)(localPlayer + hazedumper.netvars.m_hActiveWeapon));
             int weaponEntity = vam.ReadInt32((IntPtr)(client + oEntityList + ((weapon & 0xFFF) - 1) * 0x10));
             if (weaponEntity != 0)
             {
-                weaponID = vam.ReadInt32((IntPtr)(weaponEntity + netvars.m_iItemDefinitionIndex));
+                weaponID = vam.ReadInt32((IntPtr)(weaponEntity + hazedumper.netvars.m_iItemDefinitionIndex));
             }
             //Console.WriteLine(weaponID);
             return weaponID;
@@ -415,9 +428,9 @@ namespace CSgloww
             player.Position.y = vam.ReadFloat((IntPtr)(entity + vecOrigin + 0x4));
             player.Position.z = vam.ReadFloat((IntPtr)(entity + vecOrigin + 0x8));
 
-            player.Velocity.x = vam.ReadFloat((IntPtr)(entity + netvars.m_vecVelocity));
-            player.Velocity.y = vam.ReadFloat((IntPtr)(entity + netvars.m_vecVelocity + 0x4));
-            player.Velocity.z = vam.ReadFloat((IntPtr)(entity + netvars.m_vecVelocity + 0x8));
+            player.Velocity.x = vam.ReadFloat((IntPtr)(entity + hazedumper.netvars.m_vecVelocity));
+            player.Velocity.y = vam.ReadFloat((IntPtr)(entity + hazedumper.netvars.m_vecVelocity + 0x4));
+            player.Velocity.z = vam.ReadFloat((IntPtr)(entity + hazedumper.netvars.m_vecVelocity + 0x8));
             return player;
         }
 
@@ -480,12 +493,21 @@ namespace CSgloww
             menu.Show();                     
         }
 
+        public static GlowStruct enemy = new GlowStruct();
+        public static GlowStruct ally = new GlowStruct();
+
 
         static void Main(string[] args)
         {
-            
-            
-            GlowStruct Enemy = new GlowStruct()
+            var handle = GetConsoleWindow();
+
+            // Hide
+            ShowWindow(handle, SW_HIDE);
+
+            // Show
+            //ShowWindow(handle, SW_SHOW);
+
+            GlowStruct Enemy =  new GlowStruct()
             {
                 r = 1,
                 g = 0,
@@ -518,16 +540,16 @@ namespace CSgloww
                 address = client + oLocalPlayer;
                 int lPlayer = vam.ReadInt32((IntPtr)address);
 
-                //address = client + signatures.force_update_spectator_glow; //0xEB
-                //vam.WriteByte((IntPtr)address, 0xEB);
+              //  address = client + hazedumper.signatures.force_update_spectator_glow; //0xEB
+              //  vam.WriteByte((IntPtr)address, 0xEB);
                 BHopThread.Start();
                 mythread.Start();
                 
                 while (true)
                 {
                                                          
-                    //address = client + signatures.force_update_spectator_glow; //0xEB
-                    //vam.WriteByte((IntPtr)address, 0xEB);
+                    //address = client + hazedumper.signatures.force_update_spectator_glow; //0xEB
+                   // vam.WriteByte((IntPtr)address, 0xEB);
                     
                     address = client + oGlowObject;
                     int GlowObject = vam.ReadInt32((IntPtr)address);                   
@@ -554,7 +576,7 @@ namespace CSgloww
 
                             if (MyPlayer.Team != player.Team && checkBoxSpotted)
                             {
-                                vam.WriteBoolean((IntPtr)(EntityList + netvars.m_bSpotted), true);
+                                vam.WriteBoolean((IntPtr)(EntityList + hazedumper.netvars.m_bSpotted), true);
                             }
 
                             address = EntityList + oDormant;
@@ -582,7 +604,7 @@ namespace CSgloww
 
                                         calculation = GlowIndex * 0x38 + 0x10;
                                         current = GlowObject + calculation;
-                                        vam.WriteFloat((IntPtr)current, Team.a);
+                                        vam.WriteFloat((IntPtr)current, ally.a);
 
                                         calculation = GlowIndex * 0x38 + 0x24;
                                         current = GlowObject + calculation;
@@ -614,7 +636,7 @@ namespace CSgloww
 
                                         calculation = GlowIndex * 0x38 + 0x10;
                                         current = GlowObject + calculation;
-                                        vam.WriteFloat((IntPtr)current, Enemy.a);
+                                        vam.WriteFloat((IntPtr)current, enemy.a);
 
                                         calculation = GlowIndex * 0x38 + 0x24;
                                         current = GlowObject + calculation;
@@ -627,6 +649,8 @@ namespace CSgloww
                             }
                         }
                         i++;
+                        //address = client + hazedumper.signatures.force_update_spectator_glow; //0xEB
+                        //vam.WriteByte((IntPtr)address, 0xEB);
                     }
                     while (i < objectCount);
 
